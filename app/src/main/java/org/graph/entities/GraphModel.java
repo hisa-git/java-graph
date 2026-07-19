@@ -7,7 +7,7 @@ import java.util.List;
 
 public class GraphModel {
     private final static List<NodeEntity> nodes = new ArrayList<>();
-    private final static List<Edge> edges = new ArrayList<>();
+    private final static List<EdgeEntity> edges = new ArrayList<>();
 
     private final GraphView view;
 
@@ -19,7 +19,7 @@ public class GraphModel {
         return nodes;
     }
 
-    public List<Edge> getEdges() {
+    public List<EdgeEntity> getEdges() {
         return edges;
     }
 
@@ -32,7 +32,7 @@ public class GraphModel {
         }
     }
 
-    public void addEdge(Edge edge) {
+    public void addEdge(EdgeEntity edge) {
         try {
             edges.add(edge);
             view.visualizeEdge(edge);

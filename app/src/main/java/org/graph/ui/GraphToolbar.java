@@ -3,7 +3,7 @@ package org.graph.ui;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 
-import org.graph.entities.Edge;
+import org.graph.entities.EdgeEntity;
 import org.graph.entities.GraphModel;
 import org.graph.entities.NodeEntity;
 
@@ -35,7 +35,7 @@ public class GraphToolbar extends ToolBar {
     private void addEdge() {
         edgeIndex++;
 
-        Edge edge = new Edge("e_" + edgeIndex, "v_1", "v_2");
+        EdgeEntity edge = new EdgeEntity("e_" + edgeIndex, "v_1", "v_2");
         model.addEdge(edge);
     }
 }

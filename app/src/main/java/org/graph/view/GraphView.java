@@ -3,7 +3,7 @@ package org.graph.view;
 import java.util.Random;
 import java.awt.Color;
 
-import org.graph.entities.Edge;
+import org.graph.entities.EdgeEntity;
 import org.graph.entities.NodeEntity;
 
 import org.graphstream.graph.Graph;
@@ -50,7 +50,7 @@ public class GraphView {
                 "fill-color: " + cssColor + ";");
     }
 
-    public void visualizeEdge(Edge edge) {
+    public void visualizeEdge(EdgeEntity edge) {
         graph.addEdge(
                 edge.getId(),
                 edge.getNode1(),
