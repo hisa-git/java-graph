@@ -7,49 +7,19 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import org.graphstream.graph.Graph;
-import org.graphstream.graph.implementations.SingleGraph;
-
 import org.graphstream.ui.fx_viewer.FxViewPanel;
 import org.graphstream.ui.fx_viewer.FxViewer;
 import org.graphstream.ui.view.Viewer;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.graph.entities.Node;
-import org.graph.entities.Edge;
-
 import org.graph.ui.GraphToolbar;
+import org.graph.view.GraphView;
 
 public class App extends Application {
-    List<Node> nodeInput = new ArrayList<>();
-
-    {
-        nodeInput.add(new Node("v_1", "red"));
-        nodeInput.add(new Node("v_2", "red"));
-    }
-
-    List<Edge> edgeInput = new ArrayList<>();
-
-    {
-        edgeInput.add(new Edge("e1", "v_1", "v_2"));
-    }
-
-    private void visualizeNodes(Graph graph) {
-        for (Node node : nodeInput) {
-            graph.addNode(node.getName());
-        }
-    }
-
-    private void visualizeEdges(Graph graph) {
-        for (Edge edge : edgeInput) {
-            graph.addEdge(edge.getId(), edge.getNode1(), edge.getNode2());
-        }
-    }
 
     @Override
     public void start(Stage stage) {
-        Graph graph = new SingleGraph("Demo");
+        GraphView graphView = new GraphView();
+        Graph graph = graphView.getGraph();
 
         graph.setAttribute("ui.stylesheet",
                 "node {" +
@@ -61,8 +31,6 @@ public class App extends Application {
                         "   fill-color: gray;" +
                         "}");
 
-        visualizeNodes(graph);
-        visualizeEdges(graph);
         FxViewer viewer = new FxViewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
         viewer.enableAutoLayout();
 
