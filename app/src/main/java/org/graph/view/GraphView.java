@@ -15,7 +15,7 @@ public class GraphView {
         graph.setAttribute(
                 "ui.stylesheet",
                 "node {" +
-                        "fill-color: #4c87af;" +
+                // "fill-color: #4c87af;" +
                         "size: 20px;" +
                         "text-size: 18;" +
                         "}" +
@@ -27,6 +27,9 @@ public class GraphView {
     public void visualizeNode(NodeEntity node) {
         Node newNode = graph.addNode(node.getName());
         newNode.setAttribute("ui.label", node.getName());
+        newNode.setAttribute(
+                "ui.style",
+                "fill-color: " + node.getColor() + ";");
     }
 
     public void visualizeEdge(Edge edge) {

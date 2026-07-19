@@ -1,5 +1,8 @@
 package org.graph.ui;
 
+import java.util.Random;
+import java.awt.Color;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 
@@ -28,8 +31,19 @@ public class GraphToolbar extends ToolBar {
 
     private void addNode() {
         nodeIndex++;
+        Random rand = new Random();
+        int r = rand.nextInt(256);
+        int g = rand.nextInt(256);
+        int b = rand.nextInt(256);
+        Color randomColor = new Color(r, g, b);
 
-        NodeEntity node = new NodeEntity("v_" + nodeIndex, "red");
+        String cssColor = String.format(
+                "rgb(%d,%d,%d)",
+                randomColor.getRed(),
+                randomColor.getGreen(),
+                randomColor.getBlue());
+
+        NodeEntity node = new NodeEntity("v_" + nodeIndex, cssColor);
         model.addNode(node);
     }
 
