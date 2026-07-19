@@ -1,9 +1,11 @@
 package org.graph.view;
 
 import org.graph.entities.Edge;
-import org.graph.entities.Node;
+import org.graph.entities.NodeEntity;
+
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.graph.Node;
 
 public class GraphView {
 
@@ -22,8 +24,9 @@ public class GraphView {
                         "}");
     }
 
-    public void visualizeNode(Node node) {
-        graph.addNode(node.getName());
+    public void visualizeNode(NodeEntity node) {
+        Node newNode = graph.addNode(node.getName());
+        newNode.setAttribute("ui.label", node.getName());
     }
 
     public void visualizeEdge(Edge edge) {

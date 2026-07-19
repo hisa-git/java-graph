@@ -1,10 +1,10 @@
 package org.graph.entities;
 
-public class Node {
+public class NodeEntity {
     private final String name;
     private final String color;
 
-    public Node(String name, String color) {
+    public NodeEntity(String name, String color) {
         this.name = name;
         this.color = color;
     }

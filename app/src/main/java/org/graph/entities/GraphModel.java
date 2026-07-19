@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GraphModel {
-    private final static List<Node> nodes = new ArrayList<>();
+    private final static List<NodeEntity> nodes = new ArrayList<>();
     private final static List<Edge> edges = new ArrayList<>();
 
     private final GraphView view;
@@ -15,7 +15,7 @@ public class GraphModel {
         this.view = view;
     }
 
-    public List<Node> getNodes() {
+    public List<NodeEntity> getNodes() {
         return nodes;
     }
 
@@ -23,7 +23,7 @@ public class GraphModel {
         return edges;
     }
 
-    public void addNode(Node node) {
+    public void addNode(NodeEntity node) {
         try {
             nodes.add(node);
             view.visualizeNode(node);

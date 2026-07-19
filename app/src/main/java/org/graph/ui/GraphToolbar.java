@@ -5,7 +5,7 @@ import javafx.scene.control.ToolBar;
 
 import org.graph.entities.Edge;
 import org.graph.entities.GraphModel;
-import org.graph.entities.Node;
+import org.graph.entities.NodeEntity;
 
 public class GraphToolbar extends ToolBar {
 
@@ -29,7 +29,7 @@ public class GraphToolbar extends ToolBar {
     private void addNode() {
         nodeIndex++;
 
-        Node node = new Node("v_" + nodeIndex, "red");
+        NodeEntity node = new NodeEntity("v_" + nodeIndex, "red");
         model.addNode(node);
     }
 
