@@ -15,9 +15,12 @@ public class GraphView {
         graph.setAttribute(
                 "ui.stylesheet",
                 "node {" +
-                // "fill-color: #4c87af;" +
                         "size: 20px;" +
                         "text-size: 18;" +
+                        "text-alignment: above;" +
+                        "}" +
+                        "node.selected {" +
+                        "fill-color: red;" +
                         "}" +
                         "edge {" +
                         "fill-color: gray;" +
