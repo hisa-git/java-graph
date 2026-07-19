@@ -10,7 +10,7 @@ import org.graphstream.graph.Graph;
 import org.graphstream.ui.fx_viewer.FxViewPanel;
 import org.graphstream.ui.fx_viewer.FxViewer;
 import org.graphstream.ui.view.Viewer;
-
+import org.graph.entities.GraphModel;
 import org.graph.ui.GraphToolbar;
 import org.graph.view.GraphView;
 
@@ -20,22 +20,13 @@ public class App extends Application {
     public void start(Stage stage) {
         GraphView graphView = new GraphView();
         Graph graph = graphView.getGraph();
-
-        graph.setAttribute("ui.stylesheet",
-                "node {" +
-                        "   fill-color: #4c87af;" +
-                        "   size: 20px;" +
-                        "   text-size: 18;" +
-                        "}" +
-                        "edge {" +
-                        "   fill-color: gray;" +
-                        "}");
+        GraphModel graphModel = new GraphModel(graphView);
 
         FxViewer viewer = new FxViewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
         viewer.enableAutoLayout();
 
         FxViewPanel view = (FxViewPanel) viewer.addDefaultView(false);
-        ToolBar toolBar = new GraphToolbar();
+        ToolBar toolBar = new GraphToolbar(graphModel);
         BorderPane root = new BorderPane();
         root.setCenter(view);
         root.setTop(toolBar);

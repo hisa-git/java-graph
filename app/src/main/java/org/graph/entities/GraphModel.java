@@ -1,7 +1,6 @@
 package org.graph.entities;
 
 import org.graph.view.GraphView;
-import org.graphstream.graph.Graph;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +9,10 @@ public class GraphModel {
     private final static List<Node> nodes = new ArrayList<>();
     private final static List<Edge> edges = new ArrayList<>();
 
-    public GraphModel(Graph graph) {
+    private final GraphView view;
+
+    public GraphModel(GraphView view) {
+        this.view = view;
     }
 
     public List<Node> getNodes() {
@@ -21,19 +23,19 @@ public class GraphModel {
         return edges;
     }
 
-    public static void addNode(Node node) {
+    public void addNode(Node node) {
         try {
             nodes.add(node);
-            GraphView.visualizeNodes(nodes);
+            view.visualizeNode(node);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void addEdge(Edge edge) {
+    public void addEdge(Edge edge) {
         try {
             edges.add(edge);
-            GraphView.visualizeEdges(edges);
+            view.visualizeEdge(edge);
         } catch (Exception e) {
             e.printStackTrace();
         }
