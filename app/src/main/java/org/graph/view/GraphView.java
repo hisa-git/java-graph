@@ -15,19 +15,11 @@ public class GraphView {
     private final Graph graph = new SingleGraph("Demo");;
 
     public GraphView() {
-        graph.setAttribute(
-                "ui.stylesheet",
-                "node {" +
-                        "size: 20px;" +
-                        "text-size: 18;" +
-                        "text-alignment: above;" +
-                        "}" +
-                        "node.selected {" +
-                        "fill-color: red;" +
-                        "}" +
-                        "edge {" +
-                        "fill-color: gray;" +
-                        "}");
+        String css = getClass()
+                .getResource("/css/graph.css")
+                .toExternalForm();
+
+        graph.setAttribute("ui.stylesheet", "url('" + css + "')");
     }
 
     public void visualizeNode(NodeEntity node) {

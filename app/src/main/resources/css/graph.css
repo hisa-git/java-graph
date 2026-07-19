@@ -1,0 +1,13 @@
+node {
+    size: 20px;
+    text-size: 18;
+    text-alignment: above;
+}
+
+node.selected {
+    fill-color: red;
+}
+
+edge {
+    fill-color: gray;
+}
